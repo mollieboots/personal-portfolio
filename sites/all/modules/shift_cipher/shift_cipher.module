@@ -25,7 +25,7 @@ function shift_cipher_form() {
         '#description' => 'Enter a value for the number of places you want to shift each letter over. ex: 3',
         '#type' => 'textfield',
         '#element_validate' => array('element_validate_number'),
-        '#required' => TRUE,
+        // '#required' => TRUE,
     );
 
     $form['direction'] = array(
@@ -33,10 +33,10 @@ function shift_cipher_form() {
         '#description' => 'Left or Right.',
         '#type' => 'textfield',
         '#element_validate' => array(),
-        '#required' => TRUE,
+        // '#required' => TRUE,
     );
 
-    $form['shift_value'] = array(
+    $form['phrase'] = array(
         '#title' => 'Phrase:',
         '#description' => 'Enter the phrase you want to encrypt.',
         '#type' => 'textfield',
@@ -50,4 +50,55 @@ function shift_cipher_form() {
     );
 
     return $form;
+}
+
+function shift_cipher_form_submit($form, &$form_state) {
+
+    $alphabet = array(
+        'a' => 0,
+        'b' => 1,
+        'c' => 2,
+        'd' => 3,
+        'e' => 4,
+        'f' => 5,
+        'g' => 6,
+        'h' => 7,
+        'i' => 8,
+        'j' => 9,
+        'k' => 10,
+        'l' => 11,
+        'm' => 12,
+        'n' => 13,
+        'o' => 14,
+        'p' => 15,
+        'q' => 16,
+        'r' => 17,
+        's' => 18,
+        't' => 19,
+        'u' => 20,
+        'v' => 21,
+        'w' => 22,
+        'x' => 23,
+        'y' => 24,
+        'z' => 25,
+    );
+
+    $shift_value = $form_state['values']['shift_value'];
+    $direction = $form_state['values']['direction'];
+    $phrase_input = strtolower($form_state['values']['phrase']);
+
+    $split_phrase = str_split($phrase_input);
+
+    $numbers_phrase = array_replace($split_phrase, $alphabet);
+    $result = implode()
+
+    $_SESSION['testing'] = $split_phrase;
+    $_SESSION['result'] = $numbers_phrase;
+    $form_state['redirect'] = 'shift_cipher_success_page';
+
+}
+
+function shift_cipher_success() {
+    var_dump($_SESSION['result']);
+    return $_SESSION['result'];
 }

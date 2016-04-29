@@ -1,0 +1,5 @@
+name = Shift Cipher
+description = Encrypt strings of text!
+package = Shift Cipher
+core= 7.x
+files[] = shift_cipher.module

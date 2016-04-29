@@ -1,0 +1,5 @@
+1. take user input for shift value, direction, and phrase.
+2. convert phrase into numerical values
+3. add or subtract the shift value based on the direction input (add for right, subtract for left)
+4. convert numerical values back into letters
+5. return encrypted string

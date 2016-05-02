@@ -24,7 +24,7 @@ function shift_cipher_form() {
         '#title' => 'Shift Value:',
         '#description' => 'Enter a value for the number of places you want to shift each letter over. ex: 3',
         '#type' => 'textfield',
-        '#element_validate' => array('element_validate_number'),
+        '#element_validate' => array('element_validate_integer_positive'),
         '#required' => TRUE,
     );
 

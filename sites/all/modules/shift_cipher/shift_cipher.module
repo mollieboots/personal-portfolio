@@ -25,22 +25,20 @@ function shift_cipher_form() {
         '#description' => 'Enter a value for the number of places you want to shift each letter over. ex: 3',
         '#type' => 'textfield',
         '#element_validate' => array('element_validate_number'),
-        // '#required' => TRUE,
+        '#required' => TRUE,
     );
 
     $form['direction'] = array(
         '#title' => 'Direction:',
         '#description' => 'Left or Right.',
         '#type' => 'textfield',
-        '#element_validate' => array(),
-        // '#required' => TRUE,
+        '#required' => TRUE,
     );
 
     $form['phrase'] = array(
         '#title' => 'Phrase:',
         '#description' => 'Enter the phrase you want to encrypt.',
         '#type' => 'textfield',
-        '#element_validate' => array(),
         '#required' => TRUE,
     );
 
@@ -52,53 +50,65 @@ function shift_cipher_form() {
     return $form;
 }
 
+function shift_sipher_form_validate($form, &$form_state) {
+    $shift_value = $form_state['values']['shift_value'];
+    $direction = strtolower($form_state['values']['direction']);
+    $input = $form_state['values']['phrase'];
+
+    if (($direction != 'left') && ($direction != 'right')) {
+        form_set_error('', 'Sorry, you must pick either left or right.');
+    }
+    if ($shift_value < 0) {
+        form_set_error('', 'Shift value must be a positive integer.');
+    }
+}
+
 function shift_cipher_form_submit($form, &$form_state) {
-
-    $alphabet = array(
-        'a' => 0,
-        'b' => 1,
-        'c' => 2,
-        'd' => 3,
-        'e' => 4,
-        'f' => 5,
-        'g' => 6,
-        'h' => 7,
-        'i' => 8,
-        'j' => 9,
-        'k' => 10,
-        'l' => 11,
-        'm' => 12,
-        'n' => 13,
-        'o' => 14,
-        'p' => 15,
-        'q' => 16,
-        'r' => 17,
-        's' => 18,
-        't' => 19,
-        'u' => 20,
-        'v' => 21,
-        'w' => 22,
-        'x' => 23,
-        'y' => 24,
-        'z' => 25,
-    );
-
     $shift_value = $form_state['values']['shift_value'];
     $direction = $form_state['values']['direction'];
-    $phrase_input = strtolower($form_state['values']['phrase']);
+    $phrase_input = explode(' ', strtolower($form_state['values']['phrase']));
 
-    $split_phrase = str_split($phrase_input);
+    $encrypted_words = array();
 
-    $numbers_phrase = array_replace($split_phrase, $alphabet);
-    $result = implode()
+    foreach ($phrase_input as $word) {
+        $split_word = str_split($word);
+        $numbered_phrase = array();
 
-    $_SESSION['testing'] = $split_phrase;
-    $_SESSION['result'] = $numbers_phrase;
+        foreach($split_word as $letter) {
+            if (ctype_alpha($letter)) {
+                $number_val = ord($letter);
+                if ($direction == 'left') {
+                    $shifted_number = $number_val - $shift_value;
+                } else {
+                    $shifted_number = $number_val + $shift_value;
+                }
+
+                if ($shifted_number > 122) {
+                    $shifted_number -= 26;
+                }
+                if ($shifted_number < 97) {
+                    $shifted_number += 26;
+                }
+                $converted_letter = chr($shifted_number);
+                array_push($numbered_phrase, $converted_letter);
+            } else {
+                array_push($numbered_phrase, $letter);
+            }
+        }
+        $encrypted_word = implode($numbered_phrase);
+
+        array_push($encrypted_words, $encrypted_word);
+    }
+    $result = implode(' ', $encrypted_words);
+
+    $_SESSION['testing'] = $phrase_input;
+    $_SESSION['result'] = $result;
     $form_state['redirect'] = 'shift_cipher_success_page';
 
 }
 
 function shift_cipher_success() {
-    var_dump($_SESSION['result']);
-    return $_SESSION['result'];
+    // var_dump($_SESSION['result']);
+    // var_dump($_SESSION['testing']);
+    return '<h3>' . $_SESSION['result'] . '</h3>';
 }

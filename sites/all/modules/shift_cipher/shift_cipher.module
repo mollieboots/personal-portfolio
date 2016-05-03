@@ -32,6 +32,7 @@ function shift_cipher_form() {
         '#title' => 'Direction:',
         '#description' => 'Left or Right.',
         '#type' => 'textfield',
+        '#element_validate' => array('shift_sipher_form_validate'),
         '#required' => TRUE,
     );
 
@@ -57,9 +58,6 @@ function shift_sipher_form_validate($form, &$form_state) {
 
     if (($direction != 'left') && ($direction != 'right')) {
         form_set_error('', 'Sorry, you must pick either left or right.');
-    }
-    if ($shift_value < 0) {
-        form_set_error('', 'Shift value must be a positive integer.');
     }
 }
 

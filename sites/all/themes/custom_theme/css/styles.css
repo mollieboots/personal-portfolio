@@ -32,8 +32,21 @@ h1, h2, h3, h4, h5 {
     font-family: 'Playfair Display', serif;
 }
 
+a {
+    font-family: 'Playfair Display', serif;
+    text-decoration: none;
+}
+
 #page {
 
+}
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
 }
 
 header {
@@ -49,9 +62,14 @@ header {
 
 #content {
     border: 1px grey solid;
+    padding: 15px;
 }
 
 .sidebar {
     padding: 15px;
     background-color: grey;
+}
+
+.breadcrumb {
+    display: none;
 }

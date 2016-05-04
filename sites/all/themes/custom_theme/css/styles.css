@@ -73,3 +73,13 @@ header {
 .breadcrumb {
     display: none;
 }
+
+.form-submit {
+    background-color: #EEE;
+    border-radius: 6px;
+}
+
+.form-submit:hover {
+    background-color: black;
+    color: white;
+}

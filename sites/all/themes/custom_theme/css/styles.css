@@ -20,3 +20,38 @@
 /* SMACSS theme rules */
 /* @import "theme-A.css"; */
 /* @import "theme-B.css"; */
+/*#page {
+    margin: 0px;
+}*/
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+}
+
+#page {
+
+}
+
+header {
+    background-color: grey;
+    height: 200px;
+}
+
+#navigation {
+    background-color: #EEE;
+    width: 100%;
+    padding: 15px;
+}
+
+#content {
+    border: 1px grey solid;
+}
+
+.sidebar {
+    padding: 15px;
+    background-color: grey;
+}

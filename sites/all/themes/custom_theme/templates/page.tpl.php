@@ -57,7 +57,6 @@
 
     <div id="navigation">
 
-      <?php if ($main_menu): ?>
         <nav id="main-menu" role="navigation" tabindex="-1">
             <div class="pull-left">
                 <?php
@@ -77,8 +76,7 @@
                     ),
                 )); ?>
             </div>
-        <!-- </nav> -->
-        <!-- <nav class="header__secondary-menu" id="secondary-menu" role="navigation"> -->
+
             <div class="pull-right">
                 <?php print theme('links__system_secondary_menu', array(
                     'links' => $secondary_menu,
@@ -93,10 +91,6 @@
                 )); ?>
             </div>
         </nav>
-
-      <?php endif; ?>
-
-      <?php print render($page['navigation']); ?>
 
     </div>
 

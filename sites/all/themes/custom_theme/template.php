@@ -130,3 +130,12 @@ function custom_theme_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
+
+function custom_theme_page_alter(&$page) {
+    $test_path = current_path();
+    $test_cut = strstr($test_path, '/');
+    $test_output = str_replace($test_cut, "", $test_path);
+    if ($test_output == 'user') {
+        drupal_add_js('jQuery(document).ready(function($) { $("li:contains(\'My account\')" ).addClass(\'active my-account\'); });', 'inline');
+    }
+}

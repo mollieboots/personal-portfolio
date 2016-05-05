@@ -213,15 +213,15 @@
  * @endcode
  */
 $databases = array (
-  'default' => 
+  'default' =>
   array (
-    'default' => 
+    'default' =>
     array (
       'database' => 'mollie-portfolio',
       'username' => 'mollieportfolio',
       'password' => 'mollieportfolio',
       'host' => '127.0.0.1',
-      'port' => '8889',
+      'port' => '3306',
       'driver' => 'mysql',
       'prefix' => '',
     ),

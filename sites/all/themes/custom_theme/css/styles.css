@@ -90,6 +90,7 @@ header {
 .form-submit {
     background-color: #EEE;
     border-radius: 6px;
+    margin: auto;
 }
 
 .form-submit:hover {
@@ -134,4 +135,15 @@ a:hover {
     color: black;
     text-decoration: none;
     font-weight: bold;
+}
+
+a.active {
+    color: grey;
+    /*font-weight: normal;
+    background-color: white;*/
+}
+
+.form-text {
+    width: 70%;
+    border-radius: 6px;
 }

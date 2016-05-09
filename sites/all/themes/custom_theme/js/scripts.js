@@ -8,8 +8,4 @@ jQuery(document).ready(function($) {
             $(this).closest('mollie-menu-item').removeClass('selected-li');
         }
     });
-
-    // $('.mollie-menu-item').click(function() {
-    //     $(this).addClass('selected-li');
-    // });
 });

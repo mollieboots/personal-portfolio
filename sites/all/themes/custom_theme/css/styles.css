@@ -80,6 +80,7 @@ header {
     border-radius: 6px;
     margin: auto;
     border: none;
+    padding: 5px 8px;
 }
 
 .form-submit:hover {
@@ -108,7 +109,7 @@ a.header__site-link:hover {
 #navigation li {
     color: grey !important;
     margin-left: 20px;
-    margin-right: 16px;
+    margin-right: 10px;
     height: 100%;
     padding: 15px;
 }
@@ -165,4 +166,29 @@ a:hover {
 
 .mollie-menu-item.selected-li a {
     color: white;
+}
+
+li.comment_forbidden span {
+    padding: 10px;
+    width: 100%;
+    background-color: #EEE;
+    margin-top: 8px;
+    clear: both;
+}
+
+.field-name-field-repo-url .field-label {
+    display: none;
+}
+
+.field-name-field-desription .field-label {
+    display: none;
+}
+
+#content > ul > li > a {
+    background-color: #EEE;
+}
+
+#content > ul > li.tabs-primary__tab.is-active > a {
+    background-image: none !important;
+    background-color: white;
 }

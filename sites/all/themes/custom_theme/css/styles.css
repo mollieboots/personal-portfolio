@@ -192,3 +192,7 @@ li.comment_forbidden span {
     background-image: none !important;
     background-color: white;
 }
+
+#comments, .comment-comments a, .comment-add a {
+    display: none;
+}
